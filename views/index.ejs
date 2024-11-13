@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="./stylesheets/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6115578805916449"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <section class="header">
+
+      <div class="header-container">
+        <div åclass="header-top">
+          <div class="container">
+            <div class="header-top-container ">
+              <div class="header-logo">
+                <a href="/"> <img srcset="./assets/motchill.png 2x" alt=""></a>
+              </div>
+              <div class="form__group field">
+                <form action="/search" method="get">
+                  <input type="text" name="q" placeholder="Tim kiem" value="<%= searchTerm || '' %>">
+                  <button type="submit">Search</button>
+                </form>
+              </div>
+              <!-- <input type="text" placeholder="Search" class="search-input"> -->
+
+              <div class="header-acount">
+                <i class="fas fa-bars"></i>
+
+              </div>
+              <div class="header-right">
+
+                <div class="header-auth">
+                  <div class="header-login">
+                    <a href="login/index.html" class="login" class="btnLogin">
+                      Đăng nhập
+                    </a>
+                  </div>
+                  <div class="header-register">
+                    <a href="sigup/index.html" class="register" class="btnRegister">
+                      Đăng ký
+                    </a>
+                  </div>
+
+
+                </div>
+                <div class="header-auth-work" style="display:none !important">
+                  <div class="header-bookmark">
+                    <i class="fa-solid fa-bookmark"></i>
+                    Bookmark
+                  </div>
+                  <div class="header-account">
+                    <div class="header-account-name">
+                      <img srcset='../assets/avt.png 2x' style="width:50px ; height:50px"></img>
+                    </div>
+                  </div>
+
+                  <div class="dropdown">
+
+                    <i class="fa-solid fa-angle-down dropbtn"></i>
+
+                    <div id="myDropdown" class="dropdown-content">
+                      <div class="account-name">
+
+                      </div>
+                      <div> Tài khoản</div>
+                      <div> Cài đặt</div>
+                      <div> Trợ giúp</div>
+                      <div class="header-logout" onclick="signOut()">
+                        Đăng xuất
+
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="./js/navbar.js"></script>
+      <div class="header-nav">
+        <div class="container">
+          <div class="header-nav-container">
+            <ul class="header-nav-list">
+              <li class="header-nav-item">
+                <a href="/">
+                  <span class="header-nav-homepage"> TRANG CHỦ</span>
+                </a>
+              </li>
+              <li class="header-nav-item--genres">
+                <div class="header-nav-title">
+                  THỂ LOẠI
+                </div>
+                <ul class="header-nav-genres">
+                  <li class="header-nav-genres--phimle">
+                    <ul class="header-nav-genres--movie_list">
+                      <span> Phim lẻ</span>
+                    </ul>
+                  </li>
+                  <li class="header-nav-genres--phimbo">
+                    <ul class="header-nav-genres--tv_list">
+                      <span>Phim bộ</span>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="header-nav-item--country">
+                <div class="header-nav-title">
+                  QUỐC GIA
+                </div>
+                <ul class="header-nav-country">
+
+                </ul>
+              </li>
+              <li class="header-nav-item--movie">
+                <div class="header-nav-title">
+                  <a href="kho-phim.html?category=tv">
+                    <span class="header-nav-tv"> PHIM BỘ</span>
+                  </a>
+                </div>
+
+              </li>
+              <li class="header-nav-item--tv">
+                <div class="header-nav-title">
+                  <a href="kho-phim.html?category=movie">
+                    <span class="header-nav-movie"> PHIM LẺ</span>
+                  </a>
+                </div>
+                <ul class="header-nav-tv-show">
+
+                </ul>
+              </li>
+              <li class="header-nav-item--date">
+                <div class="header-nav-title">
+                  NĂM SẢN XUẤT
+                </div>
+                <ul class="header-nav-date">
+
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+    </section>
+  </header>
+  <main>
+    <section class="upcoming">
+      <!-- <div class="container"> -->
+      <div class="upcoming-container">
+        <div class="upcoming-title">
+          PHIM SẮP RA MẮT
+        </div>
+        <ul class="upcoming-list">
+          <% movies.forEach(function(movie) { %>
+            <li>
+              <img itemprop="image" src="<%= movie.thumb %>" style=" width: 174px; height: 261px;">
+              <p><a href="/movies/<%= movie._id %>"><strong>
+                    <%= movie.title %>
+                  </strong></a></p>
+              <p><strong>Episode:</strong>
+                <%= movie.episode %>
+              </p>
+            </li>
+            <% }); %>
+        </ul>
+      </div>
+      <div>
+        <% if (currentPage> 1) { %>
+          <a href="?page=<%= currentPage - 1 %>&limit=<%= limit %>">Previous</a>
+          <% } %>
+
+            <% for (let i=1; i <=totalPages; i++) { %>
+              <a href="?page=<%= i %>&limit=<%= limit %>" class="<%= i === currentPage ? 'active' : '' %>">
+                <%= i %>
+              </a>
+              <% } %>
+
+                <% if (currentPage < totalPages) { %>
+                  <a href="?page=<%= currentPage + 1 %>&limit=<%= limit %>">Next</a>
+                  <% } %>
+      </div>
+
+      <!-- </div> -->
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img srcset="./assets/motchill.png 2x" alt="">
+            <div class="author">
+              Nhóm thực hiện:
+              <div> Thái - Tân - Cường - Giang</div>
+              <div> Thực tập tại 3S - Huế</div>
+            </div>
+          </div>
+
+          <div class="phim-moi">
+            <div class="phim-moi-title">
+              Phim mới
+            </div>
+            <ul class="phim-moi-list">
+              <li class="phim-moi-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-moi-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-moi-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-moi-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-moi-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-moi-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-moi-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+            </ul>
+          </div>
+          <div class="phim-hay">
+            <div class="phim-hay-title">
+              Phim hay
+            </div>
+            <ul class="phim-hay-list">
+              <li class="phim-hay-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-hay-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-hay-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-hay-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-hay-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-hay-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-hay-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+            </ul>
+          </div>
+          <div class="phim-hot">
+            <div class="phim-hot-title">
+              Phim hot
+            </div>
+            <ul class="phim-hot-list">
+              <li class="phim-hot-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-hot-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-hot-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-hot-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-hot-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-hot-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+              <li class="phim-hot-item">
+                <a href="">Phim chiếu rạp</a>
+              </li>
+            </ul>
+          </div>
+          <div class="help">
+            <div class="help-title">
+              Trợ giúp
+            </div>
+            <ul class="help-list">
+              <li class="phim-hot-item">
+                <a href="">Hỏi đáp</a>
+              </li>
+              <li class="help-item">
+                <a href="">Liên hệ</a>
+              </li>
+              <li class="help-item">
+                <a href="">Tin tức</a>
+              </li>
+
+            </ul>
+          </div>
+          <div class="infor">
+            <div class="infor-title">
+              Thông tin
+            </div>
+            <ul class="infor-list">
+              <li class="infor-item">
+                <a href="">Điều khoản sử dụng</a>
+              </li>
+              <li class="infor-item">
+                <a href="">Chính sách riêng tư</a>
+              </li>
+              <li class="infor-item">
+                <a href="">Khiếu nại bản quyền</a>
+              </li>
+
+              <li class="infor-item">
+                @2022 MotChill.Net
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
